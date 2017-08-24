@@ -82,10 +82,10 @@ class PomoContent extends Component
 		let addReduce=which=>{
 			return (
 				<Row>
-					<Col md={6}>
+					<Col xs={6}>
 						<Fbuttn click={this.props.addTime.bind(this,which)}/>
 					</Col>
-					<Col md={6}>
+					<Col xs={6}>
 						<Fbuttn n={true}click={this.props.reduceTime.bind(this,which)}/>
 					</Col>
 				</Row>
@@ -99,7 +99,7 @@ class PomoContent extends Component
 		let started = this.props.clock.started
 		let miniNum=which=>{
 			let wr = which.slice(0,1)
-			return clock[wr]!==clock[which]?<Col md={2} style={smNum}>{minsecs(clock[wr])}</Col>:''
+			return clock[wr]!==clock[which]?<Col xs={2} style={smNum}>{minsecs(clock[wr])}</Col>:''
 		}
 		return <Col lg={12}>
 				<Row style={{height:'100px'}}>	
@@ -243,13 +243,13 @@ class Pomo extends Component
 			<PomoContent clock={this.state} addTime={this.addTime.bind(this)} reduceTime={this.reduceTime.bind(this)}/>
 			<Row 
 				style={{paddingTop:10}}>
-        <Col sm={4} md={4}>
+        <Col xs={4}>
           {deleteButton}
         </Col>
-        <Col sm={4} md={4}>
+        <Col xs={4}>
           {startStop}
         </Col>
-        <Col sm={4} md={4}
+        <Col xs={4}
 					style={{textAlign:'center'}}>
           {switchButton}
         </Col>	
