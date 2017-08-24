@@ -69,16 +69,6 @@ class PomoContent extends Component
 	render()
 	{
 		let clock = this.props.clock
-		let work = 
-		{
-			background:clock.workRest?"#356":'white',
-			minHeight:'200px'
-		}
-		let rest = 
-		{
-			background:!clock.workRest?"green":'white',
-			minHeight:'200px'
-		}
 		let addReduce=which=>{
 			return (
 				<Row>
@@ -231,7 +221,6 @@ class Pomo extends Component
 	}
   render()
   {
-		let id = this.props.id
 		let label = this.state.workRest?'Work':'Rest'
     let deleteButton = Buttn({secondary:true, text:'delete',click:this.removedPomo.bind(this)})
     let switchButton = Toggl({label:label,toggle:this.switchPomo,toggled:this.state.workRest, able: this.state.started})
@@ -287,7 +276,7 @@ function deletePomo(props)
 {
   let clocks = Object.assign([],[...this.state.clocks])
   .filter((a,b)=>{
-    if(props !== a) return a
+    return props !== a
   })
   this.setState({
     clocks:clocks
@@ -325,7 +314,7 @@ class App extends Component
       {
 				this.state.clocks.map(clock=>
 				(
-				<Col sm={6} md={4} key={clock} 
+				<Col xs={12} sm={6} md={6} lg={4} key={clock} 
 				style={{paddingBottom:'20px'}}>
 				{
 					this.papr({
